@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://csrsiy5frln3m"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_8c2pj"]
+[ext_resource type="PackedScene" uid="uid://bswq7q2xsnoyd" path="res://Cursor.tscn" id="1_ei288"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_8c2pj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(33, 2)
+
+[node name="PanelContainer" parent="." instance=ExtResource("1_ei288")]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bswq7q2xsnoyd"]
+
+[ext_resource type="Script" path="res://Cursor.gd" id="1_moou7"]
+[ext_resource type="Shader" path="res://Cursor.gdshader" id="2_036w2"]
+[ext_resource type="Texture2D" uid="uid://ca2bxfkklcr2f" path="res://icon.svg" id="3_bqsb3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akd2o"]
+shader = ExtResource("2_036w2")
+shader_parameter/rot_angle = 0.0
+shader_parameter/circle_radius = 0.1
+shader_parameter/drag = 0.4
+shader_parameter/outline_thickness = 0.01
+
+[node name="Sprite2D" type="Sprite2D"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_akd2o")
+texture = ExtResource("3_bqsb3")
+script = ExtResource("1_moou7")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -20.0
+offset_right = 51.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+text = "t"
