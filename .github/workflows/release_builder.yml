@@ -31,6 +31,6 @@ jobs:
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
             generateReleaseNotes: true
-            tag: ${{ github.ref_name }}
+            tag: pre-release-${{github.ref_name}}
             artifacts: /home/runner/.local/share/godot/archives/Windows\ Desktop.zip
             allowUpdates: true  # Allow updates to existing releases
