@@ -31,5 +31,5 @@ jobs:
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
             generateReleaseNotes: true
-            tag: ${{ github.sha }}
+            tag: ${{ github.sha::7 }}
             artifacts: /home/runner/.local/share/godot/archives/Windows\ Desktop.zip
