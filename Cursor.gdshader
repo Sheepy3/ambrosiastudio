@@ -5,6 +5,7 @@ const vec2 pivot = vec2(0.5, 0.5);
 uniform float circle_radius = 0.2; // Radius of the circle
 uniform float drag = 0.0;
 uniform float outline_thickness = 0.01;
+uniform vec4 official_color;
 void fragment() {
     // Center the UV coordinates
     vec2 uv = UV - pivot;
@@ -31,9 +32,11 @@ void fragment() {
         float adjusted_thickness = outline_thickness / max(ellipse_axes.x, ellipse_axes.y);
 
         if (abs(ellipse_distance - 0.5) < adjusted_thickness) {
-            color = vec4(0.953, 0.533, 1, 0.82); // Red outline
+            color = official_color; // Red outline
+			color -= vec4(0.0,0.0,0.0,0.4);
         } else if (ellipse_distance < 0.5) {
-            color = vec4(0.918, 0.184, 1, 0.361); // Blue fill
+            color = official_color; // Blue fill
+			color -= vec4(0.0,0.0,0.0,0.8);
         } else {
             discard; // Outside the shape
         }
@@ -42,9 +45,11 @@ void fragment() {
         float circle_distance = length(uv);
 
         if (abs(circle_distance - circle_radius) < outline_thickness) {
-            color = vec4(0.953, 0.533, 1, 0.82); // Red outline
+            color = official_color; // Red outline
+			color -= vec4(0.0,0.0,0.0,0.4);
         } else if (circle_distance < circle_radius) {
-            color = vec4(0.918, 0.184, 1, 0.361); // Blue fill
+            color = official_color; // Blue fill
+			color -= vec4(0.0,0.0,0.0,0.8);
         } else {
             discard; // Outside the shape
         }

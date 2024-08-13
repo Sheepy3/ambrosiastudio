@@ -9,6 +9,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float) -> void:
 	pass
+
+func _shortcut_input(inputevent:InputEvent) -> void:
+	if inputevent.is_action_pressed("Quit"):
+		get_tree().quit()
 	
 func _notification(what:int) -> void:
 	match what:

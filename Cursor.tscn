@@ -1,37 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://bswq7q2xsnoyd"]
+[gd_scene load_steps=6 format=3 uid="uid://bswq7q2xsnoyd"]
 
 [ext_resource type="Script" path="res://Cursor.gd" id="1_moou7"]
 [ext_resource type="Shader" path="res://Cursor.gdshader" id="2_036w2"]
 [ext_resource type="Texture2D" uid="uid://ca2bxfkklcr2f" path="res://icon.svg" id="3_bqsb3"]
+[ext_resource type="Script" path="res://CursorVisual.gd" id="4_cn10k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akd2o"]
 shader = ExtResource("2_036w2")
 shader_parameter/rot_angle = 0.0
-shader_parameter/circle_radius = 0.1
-shader_parameter/drag = 0.4
+shader_parameter/circle_radius = 0.2
+shader_parameter/drag = 0.0
 shader_parameter/outline_thickness = 0.01
+shader_parameter/official_color = Vector4(0.953, 0.533, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 102.0
+offset_bottom = 40.0
+script = ExtResource("1_moou7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_akd2o")
 texture = ExtResource("3_bqsb3")
-script = ExtResource("1_moou7")
+script = ExtResource("4_cn10k")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -51.0
-offset_top = -20.0
+offset_top = -25.0
 offset_right = 51.0
-offset_bottom = 20.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="PanelContainer"]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-text = "t"
+
+[node name="Click" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Status" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
