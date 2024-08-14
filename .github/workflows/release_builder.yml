@@ -30,8 +30,7 @@ jobs:
         uses: liudonghua123/delete-release-action@v1
         with:
           release_name: 'pre-release-${{ github.ref_name }}'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
+      
       - name: create release
         uses: ncipollo/release-action@v1.12.0
         with:
